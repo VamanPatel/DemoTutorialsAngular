@@ -1,0 +1,13 @@
+.btn-danger {
+  background-color: #bf032a;
+  color: #ffffff;
+  border-color: #bf032a;
+}
+
+mat-card-actions > *:not(:first-child) {
+  margin-left: 5px;
+}
+
+.mat-card-actions {
+  margin-bottom: 0;
+}

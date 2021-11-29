@@ -1,0 +1,26 @@
+<div style="background-color: white; width: 100%">
+  <div>
+    <h4 [ngClass]="data.isDangerAction ? 'ts-red' : 'ts-blue'">
+      {{ data.title }}
+    </h4>
+  </div>
+  <span [innerHTML]="data.msg"></span>
+  <br />
+  <br />
+  <div align="right">
+    <mat-card-actions>
+      <button
+        mat-button
+        class="ts-button"
+        [ngClass]="{ red: data.isDangerAction }"
+        (click)="dialogRef.close(true)"
+        autofocus
+      >
+        {{ data.yesText }}
+      </button>
+      <button mat-button class="ts-button" (click)="dialogRef.close(false)">
+        {{ data.noText }}
+      </button>
+    </mat-card-actions>
+  </div>
+</div>

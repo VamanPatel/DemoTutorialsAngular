@@ -1,0 +1,47 @@
+<!-- created by uttam -->
+<mat-form-field appearance="outline" class="no-padding">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    tabindex="1"
+    #inputDate
+    [formControl]="controlDate"
+    mask="09/09/0099"
+    placeholder="mm/dd/yyyy"
+    (blur)="onMatDateSelected(date)"
+    (keydown)="onKeyDown($event)"
+    [readonly]="disableInput"
+  />
+  <input
+    hidden
+    [matDatepicker]="dobPicker"
+    [matDatepickerFilter]="filter"
+    [min]="min"
+    [max]="max"
+    [(ngModel)]="date"
+    [disabled]="disableInput"
+    (dateChange)="onMatDateSelected($event.value)"
+  />
+  <!-- added dateChange event above -->
+  <button
+    *ngIf="showClear && inputDate.value"
+    mat-button
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="clearDate()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-datepicker-toggle
+    matSuffix
+    [for]="dobPicker"
+    [disabled]="controlDate.disabled"
+  >
+  </mat-datepicker-toggle>
+  <mat-datepicker #dobPicker [disabled]="false"></mat-datepicker>
+  <!-- <mat-datepicker #dobPicker (selectedChanged)="onMatDateSelected($event)" [disabled]="false"></mat-datepicker> -->
+  <mat-error *ngIf="controlDate.errors && controlDate.errors['custom']">{{
+    controlDate.errors["custom"]
+  }}</mat-error>
+</mat-form-field>

@@ -1,0 +1,10 @@
+<h1>Angular Read More| Read less button link example</h1>
+
+<p
+  [ngClass]="{ limitTextHeight: isReadMore }"
+  style="max-width: 600px"
+  [innerHTML]="text"
+></p>
+<button type="button" (click)="isReadMore = !isReadMore">
+  {{ isReadMore ? "Read More" : "Read Less" }}
+</button>
